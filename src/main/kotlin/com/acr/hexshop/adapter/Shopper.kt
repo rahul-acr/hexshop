@@ -6,7 +6,7 @@ import com.acr.hexshop.port.ShopRepository
 import org.springframework.stereotype.Component
 
 @Component
-class RegularBuyer(private val repository: ShopRepository): Buyer {
+class Shopper(private val repository: ShopRepository): Buyer {
 
     override fun buy(shopName: String, productName: String, quantity: Int) {
         val shop = repository.findShopByName(shopName)
