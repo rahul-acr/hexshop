@@ -1,7 +1,6 @@
-package com.acr.hexshop.adapter
+package com.acr.hexshop.repository
 
 import com.acr.hexshop.domain.Shop
-import com.acr.hexshop.port.ShopRepository
 
 
 class InMemoryShopRepository : ShopRepository {

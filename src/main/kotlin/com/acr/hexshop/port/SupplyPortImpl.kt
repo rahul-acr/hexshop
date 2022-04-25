@@ -1,11 +1,10 @@
-package com.acr.hexshop.adapter
+package com.acr.hexshop.port
 
-import com.acr.hexshop.port.ShopRepository
-import com.acr.hexshop.port.Supplier
+import com.acr.hexshop.repository.ShopRepository
 import org.springframework.stereotype.Component
 
 @Component
-class Distributer(val shopRepository: ShopRepository): Supplier {
+class SupplyPortImpl(val shopRepository: ShopRepository): SupplyPort {
 
     override fun supply(shopName: String, productName: String, quantity: Int) {
         shopRepository.findShopByName(shopName)?.restock(productName, quantity)

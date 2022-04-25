@@ -1,16 +1,16 @@
-package com.acr.hexshop.api
+package com.acr.hexshop.adapter
 
 import com.acr.hexshop.domain.Product
-import com.acr.hexshop.port.Buyer
+import com.acr.hexshop.port.BuyPort
 import org.springframework.web.bind.annotation.*
 
 @RestController
 @RequestMapping("shops/")
-class ShopSellApi(val buyer: Buyer) {
+class ShopSellApi(val buyPort: BuyPort) {
 
     @GetMapping("{shopName}")
     fun view(@PathVariable shopName: String): Collection<Product> {
-        return buyer.view(shopName)
+        return buyPort.view(shopName)
     }
 
     @PostMapping("{shopName}/{productName}/buy")
@@ -19,7 +19,7 @@ class ShopSellApi(val buyer: Buyer) {
         @PathVariable productName: String,
         @RequestParam quantity: Int,
     ) {
-        buyer.buy(shopName, productName, quantity)
+        buyPort.buy(shopName, productName, quantity)
     }
 
 

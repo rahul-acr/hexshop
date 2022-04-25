@@ -1,30 +1,21 @@
 package com.acr.hexshop.port
 
 import com.acr.hexshop.domain.Product
-import com.acr.hexshop.domain.Shop
 
-interface Viewer {
+interface ViewPort {
 
     fun view(shopName: String): Collection<Product>
 
 }
 
-interface Buyer : Viewer {
+interface BuyPort : ViewPort {
 
     fun buy(shopName: String, productName: String, quantity: Int)
 
 }
 
-interface Supplier {
+interface SupplyPort {
 
     fun supply(shopName: String, productName: String, quantity: Int)
-
-}
-
-interface ShopRepository {
-
-    fun findShopByName(shopName: String): Shop?
-
-    fun add(shop: Shop)
 
 }

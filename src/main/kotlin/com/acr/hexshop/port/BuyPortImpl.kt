@@ -1,12 +1,11 @@
-package com.acr.hexshop.adapter
+package com.acr.hexshop.port
 
 import com.acr.hexshop.domain.Product
-import com.acr.hexshop.port.Buyer
-import com.acr.hexshop.port.ShopRepository
+import com.acr.hexshop.repository.ShopRepository
 import org.springframework.stereotype.Component
 
 @Component
-class Shopper(private val repository: ShopRepository): Buyer {
+class BuyPortImpl(private val repository: ShopRepository): BuyPort {
 
     override fun buy(shopName: String, productName: String, quantity: Int) {
         val shop = repository.findShopByName(shopName)

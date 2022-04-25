@@ -1,11 +1,11 @@
-package com.acr.hexshop.api
+package com.acr.hexshop.adapter
 
-import com.acr.hexshop.port.Supplier
+import com.acr.hexshop.port.SupplyPort
 import org.springframework.web.bind.annotation.*
 
 @RestController
 @RequestMapping("/shops/")
-class ShopInventoryApi(val supplier: Supplier) {
+class ShopInventoryApi(val supplyPort: SupplyPort) {
 
     @PostMapping("{shopName}/{productName}/restock")
     fun restock(
@@ -13,7 +13,7 @@ class ShopInventoryApi(val supplier: Supplier) {
         @PathVariable productName: String,
         @RequestParam quantity: Int,
     ) {
-        supplier.supply(shopName, productName, quantity)
+        supplyPort.supply(shopName, productName, quantity)
     }
 
 }
